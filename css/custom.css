@@ -1,0 +1,42 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 8px;
+}
+.search-container {
+    flex-grow: 1;
+    min-width: 150px;
+}
+.search-input {
+    width: 100%;
+    min-width: 100px;
+}
+.bookmarkBtn {
+    display: block; /* Visible by default */
+}
+@media (max-width: 576px) {
+    .navbar {
+        flex-wrap: nowrap;
+        gap: 4px;
+    }
+    .search-container {
+        max-width: 40%;
+    }
+    .search-input {
+        min-width: 60px;
+    }
+    .btn, .rounded-circle {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+        padding: 4px;
+    }
+    .searchBtn {
+        padding: 0 6px;
+    }
+    .bookmarkBtn {
+        display: none; /* Hide bookmark button on mobile */
+    }
+}
