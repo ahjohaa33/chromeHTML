@@ -1,31 +1,167 @@
 .navbar {
     display: flex;
-    align-items: center;
+   
     flex-wrap: nowrap;
-    gap: 6px;
+    gap: 2px;
     padding: 8px;
+    background-color: black;
+    opacity: 0.8;
+   
 }
+
+.backBtn i, .nextBtn i, .reloadBtn i, .settingsBtn i {
+    color: rgb(255, 255, 255) !important; /* Make the icons beige */
+    font-style: bold;
+}
+
+body{
+    background-image: url('../images/hamas.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Cover the entire div */
+    opacity: 0.7;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+}
+
+
+.dropdown-menu li a {
+    color: black !important; /* Default black text */
+    background-color: white !important; /* No background color */
+}
+
+.dropdown-menu li a:active {
+    color: rgb(255, 255, 255) !important; /* White text when pressed */
+    background-color: rgb(93, 91, 91) !important; /* No background change */
+}
+
+/* #nav-tabContent {
+    background-image: url('../images/hamas.jpg'); 
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%; 
+    color: white; 
+}
+ */
+
+
 .search-container {
     flex-grow: 1;
     min-width: 150px;
+    
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    
+    width: 100%;
 }
+
+ 
+  
+.nav-tabs .nav-link {
+    padding: 5px 8px; /* Reduce padding */
+    font-size: 12px;  /* Make text smaller */
+    max-width: 120px; /* Limit tab width */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* Make all tabs white */
+#nav-tab .nav-link {
+    color: white !important;
+    background-color: transparent;
+    border: none;
+    transition: color 0.3s ease;
+}
+
+/* Active tab - Make text black */
+#nav-tab .nav-link.active {
+    color: black !important;
+    background-color: white;
+    border-radius: 5px;
+   
+}
+
+.close-tab {
+    font-size: 14px;   /* Make close button smaller */
+    line-height: 1;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
 .search-input {
     width: 100%;
-    min-width: 100px;
+    padding: 8px; /* Space for the button inside */
+    border: 2px solid rgb(200, 200, 200);
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    background-color: transparent;
 }
+
+
+
+.search-container button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+  }
+  
+/* Change placeholder color */
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+}
+
+/* On focus: keep background transparent but highlight text */
+.search-input:focus {
+    color: white !important;
+    background-color: transparent !important;
+    border-color: white;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8); 
+}
+
+
+
+  
+  .search-container button i {
+    pointer-events: none; /* Prevents the icon from blocking clicks */
+  }
+ 
+
+
 .bookmarkBtn {
     display: block; /* Visible by default */
+    color: beige;
 }
 @media (max-width: 576px) {
+
+
     .navbar {
         flex-wrap: nowrap;
-        gap: 4px;
+        gap: 2px;
+        align-items: flex-start;
     }
     .search-container {
-        max-width: 40%;
+        width: 92%; /* Set width to 80% */
+        max-width: 95%;
+        order: -1; /* Move search container to the left */
+        flex-grow: 1;
     }
     .search-input {
         min-width: 60px;
+        width: 100%;
+        padding: 5px 8px; /* Reduce padding */
+        font-size: 14px; /* Adjust font size for better mobile fit */
     }
     .btn, .rounded-circle {
         width: 34px;
@@ -33,10 +169,54 @@
         font-size: 0.85rem;
         padding: 4px;
     }
-    .searchBtn {
-        padding: 0 6px;
-    }
+    /* .searchBtn {
+        display: none;
+    } */
     .bookmarkBtn {
         display: none; /* Hide bookmark button on mobile */
     }
+
+    .d-md-flex {
+        display: none !important; /* Hide back, next, and reload buttons on mobile */
+    }
+    .d-md-none {
+        display: flex !important; /* Show them on the right for mobile */
+    }
+    .rounded-circle {
+        display: none !important; /* Hide avatar on mobile */
+    }
+
+   
+}
+
+
+/* Bookmark button active state */
+.bookmarkBtn.active {
+    background-color: transparent; /* Yellow background when active */
+    color: yellow; /* Black text/icon */
+}
+
+
+
+.nav-tabs-container {
+    width: 100%; /* Make it responsive */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
+
+.nav-tabs {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure tabs stay in a row */
+    gap: 5px;
+}
+
+.nav-link {
+    white-space: nowrap; /* Prevent text from wrapping */
+    padding: 10px 15px;
+}
+
+
+.nav-link:not(.active), .dropdown-item {
+    color: grey !important;
 }
